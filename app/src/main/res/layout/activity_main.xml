@@ -6,50 +6,26 @@
     android:orientation="vertical"
     android:padding="16dp">
 
+    <!-- 상단 안내 텍스트 -->
     <TextView
-        android:id="@+id/titleText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/baking_title"
-        android:textAppearance="?attr/textAppearanceTitleLarge"
-        android:layout_marginBottom="16dp"/>
-
-    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginBottom="16dp">
+        android:text="리팜에 대해 궁금한 점이 있으신가요?"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_marginTop="24dp"
+        android:textColor="@android:color/black"/>
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/promptInputLayout"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_marginEnd="16dp"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="자유롭게 질문해보세요!"
+        android:textSize="16sp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="24dp"
+        android:textColor="@android:color/darker_gray"/>
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/promptEditText"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/label_prompt"
-                android:inputType="textMultiLine"
-                android:minLines="1"
-                android:maxLines="4"
-                android:gravity="top"
-                android:textColor="@android:color/black"/>
-
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <Button
-            android:id="@+id/sendButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/action_go"
-            android:layout_gravity="bottom"/>
-
-    </LinearLayout>
-
+    <!-- 답변 영역 -->
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -81,5 +57,42 @@
             android:visibility="gone"/>
 
     </FrameLayout>
+
+    <!-- 입력 영역 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="16dp">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/promptInputLayout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginEnd="16dp"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/promptEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="질문을 입력하세요"
+                android:inputType="textMultiLine"
+                android:minLines="1"
+                android:maxLines="4"
+                android:gravity="top"
+                android:textColor="@android:color/black"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:id="@+id/sendButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="전송"
+            android:layout_gravity="bottom"/>
+
+    </LinearLayout>
 
 </LinearLayout>

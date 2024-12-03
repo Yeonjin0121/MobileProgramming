@@ -1,14 +1,14 @@
 <resources>
     <string name="app_name">Mobile_Project_Chat</string>
 
-    <string name="action_go">Go</string>
+    <string name="action_go">입력</string>
     <string name="baking_title">ChatBot with Gemini</string>
     <string name="label_prompt">Prompt</string>
-    <string name="prompt_placeholder">리팜에 대해서 궁금한 점이 있으신가요?</string>
+    <string name="prompt_placeholder">ex) 수거자와 의뢰자의 역할이 무엇인가요?</string>
     <string name="image1_description">Cupcake</string>
     <string name="image2_description">Cookies</string>
     <string name="image3_description">Cake</string>
-    <string name="results_placeholder">(챗봇의 답변이 아래에 표시됩니다.)</string>
+    <string name="results_placeholder">챗봇의 답변을 잠시만 기다려 주세요.</string>
     <string name="prompt_hint">폐의약품 수거와 관련된 질문을 입력해주세요</string>
     <string name="input_length_error">최대 100자까지 입력 가능합니다</string>
 </resources>
