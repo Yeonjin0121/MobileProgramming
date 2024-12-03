@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ClientList">
+
+    <LinearLayout
+        android:id="@+id/client"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@color/white">
+
+        <!-- 상단 텍스트뷰 -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="수거 내역"
+            android:padding="16dp"
+            android:textSize="25dp"
+            android:textStyle="bold"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginLeft="13dp"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:id="@+id/period_all"
+                android:layout_width="70dp"
+                android:layout_height="35dp"
+                android:text="전체"
+                android:gravity="center"
+                android:layout_marginHorizontal="3dp"
+                android:background="@drawable/period_bg"
+                android:textStyle="bold"
+                />
+
+
+
+            <TextView
+                android:id="@+id/period_oneM"
+                android:layout_width="70dp"
+                android:layout_height="35dp"
+                android:text="1개월"
+                android:gravity="center"
+                android:layout_marginHorizontal="3dp"
+                android:textStyle="bold"
+                android:background="@drawable/period_bg"
+                />
+
+
+            <TextView
+                android:id="@+id/period_threeM"
+                android:layout_width="70dp"
+                android:layout_height="35dp"
+                android:gravity="center"
+                android:text="3개월"
+                android:layout_marginHorizontal="3dp"
+                android:textStyle="bold"
+                android:background="@drawable/period_bg"
+                />
+
+
+            <TextView
+                android:id="@+id/period_sixM"
+                android:layout_width="70dp"
+                android:layout_height="35dp"
+                android:gravity="center"
+                android:text="6개월"
+                android:layout_marginHorizontal="3dp"
+                android:textStyle="bold"
+                android:background="@drawable/period_bg"
+                />
+
+        </LinearLayout>
+
+
+
+        <!-- RecyclerView 추가 -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerViewClient"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="16dp"/>
+
+    </LinearLayout>
+
+</FrameLayout>

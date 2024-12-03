@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Mobile_TermProject</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
+    <string name="back_button_description">Back button</string> <!-- 추가된 문자열 리소스 -->
+</resources>

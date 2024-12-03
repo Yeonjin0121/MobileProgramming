@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_height="match_parent"
+    android:id = "@+id/main"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="#FFFFFF">
+
+    <!-- 상단 탭 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="2"
+        android:layout_marginBottom="16dp">
+
+        <!-- 서비스 이용 방법 탭 -->
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="서비스 이용 방법"
+            android:textSize="16sp"
+            android:id="@+id/textViewHowToUseService"
+            android:gravity="center"
+            android:background="#FFE082"
+            android:padding="8dp"
+            android:textColor="#000000"
+            />
+
+        <!-- 폐의약품 처리 방법 탭 -->
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:id="@+id/textViewHowToUse"
+            android:text="폐의약품 처리 방법"
+            android:textSize="16sp"
+            android:gravity="center"
+            android:background="#E0E0E0"
+            android:padding="8dp"
+            android:textColor="#9E9E9E" />
+    </LinearLayout>
+
+    <!-- 서비스 이용 방법 내용 1 -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="1. 회원가입 후 로그인하여 사용자가 의뢰하거나 수거자가 수거할 수 있습니다."
+        android:textSize="16sp"
+        android:lineSpacingExtra="4dp"
+        android:textColor="#333333"
+        android:layout_marginBottom="16dp" />
+
+    <!-- 서비스 이용 방법 내용 2 -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="2. 수거 신청 시 필요한 정보를 입력한 후, 신청을 완료할 수 있습니다."
+        android:textSize="16sp"
+        android:lineSpacingExtra="4dp"
+        android:textColor="#333333"
+        android:layout_marginBottom="16dp" />
+
+    <!-- 서비스 이용 방법 내용 3 -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="3. 수거자는 의뢰된 내역을 확인하고, 수거를 진행할 수 있습니다."
+        android:textSize="16sp"
+        android:lineSpacingExtra="4dp"
+        android:textColor="#333333"
+        android:layout_marginBottom="16dp" />
+
+    <!-- 서비스 이용 방법 내용 4 -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="4. 수거 완료 후, 결과를 확인하고 포인트가 적립됩니다."
+        android:textSize="16sp"
+        android:lineSpacingExtra="4dp"
+        android:textColor="#333333"
+        android:layout_marginBottom="16dp" />
+
+    <!-- 유의사항 제목 -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="서비스 이용 시 유의사항"
+        android:textSize="18sp"
+        android:textColor="#000000"
+        android:layout_marginBottom="16dp"
+        android:textStyle="bold"/>
+
+    <!-- 유의사항 항목 1 -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="• 개인정보 보호를 위해 신뢰할 수 있는 서비스를 제공합니다."
+        android:textSize="16sp"
+        android:lineSpacingExtra="4dp"
+        android:textColor="#333333"
+        android:layout_marginBottom="16dp" />
+
+    <!-- 유의사항 항목 2 -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="• 폐의약품 처리 방법을 정확히 따라 주세요."
+        android:textSize="16sp"
+        android:lineSpacingExtra="4dp"
+        android:textColor="#333333"
+        android:layout_marginBottom="16dp" />
+
+    <!-- 유의사항 항목 3 -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="• 수거 진행 전, 의뢰자의 주소 및 수거 시간대를 확인해 주세요."
+        android:textSize="16sp"
+        android:lineSpacingExtra="4dp"
+        android:textColor="#333333"
+        android:layout_marginBottom="16dp" />
+
+    <!-- 홈 화면으로 버튼 -->
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="홈 화면으로"
+        android:textSize="16sp"
+        android:background="#FF9800"
+        android:textColor="#FFFFFF"
+        android:layout_marginTop="32dp"
+        android:id="@+id/btnHome"
+        android:layout_gravity="center"/>
+
+</LinearLayout>

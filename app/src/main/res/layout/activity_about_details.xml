@@ -1,0 +1,548 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".AboutDetails"
+
+    >
+
+    <LinearLayout
+        android:id="@+id/main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".AboutDetails"
+        android:background="@color/white"
+        android:paddingBottom="20dp"
+
+        >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/back_button"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:background="@drawable/baseline_arrow_back_ios_new_24"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="30dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:text="수거 내역 상세"
+                android:textStyle="bold"
+                android:textSize="23dp"
+                android:layout_centerInParent="true" />
+        </RelativeLayout>
+
+
+
+
+
+        <LinearLayout
+            android:id="@+id/Collection_status"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/bottom_border"
+            android:padding="10dp"
+            >
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="10/28 (월) 수거 완료되었어요"
+                android:textSize="23dp"
+                android:textStyle="bold"
+                android:layout_marginTop="25dp"
+                />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginTop="45dp"
+                android:layout_marginHorizontal="5dp"
+                >
+
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="8dp"
+                    android:layout_weight="1"
+                    android:layout_marginHorizontal="3dp"
+                    android:src="@drawable/status_stick"/>
+
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="8dp"
+                    android:layout_weight="1"
+                    android:layout_marginHorizontal="3dp"
+                    android:src="@drawable/status_stick"/>
+
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="8dp"
+                    android:layout_weight="1"
+                    android:layout_marginHorizontal="3dp"
+                    android:src="@drawable/status_stick"/>
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="30dp"
+                android:layout_marginHorizontal="5dp"
+                >
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginHorizontal="3dp"
+                    android:textSize="13dp"
+                    android:text="접수 중"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginHorizontal="3dp"
+                    android:textSize="13dp"
+
+                    android:text="수거 대기"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginHorizontal="3dp"
+                    android:textSize="13dp"
+
+                    android:text="수거 완료"/>
+
+
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:columnCount="3"
+            android:paddingHorizontal="30dp"
+            android:layout_margin="10dp"
+            >
+
+            <!-- 상단 큰 TextView -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:gravity="center"
+                android:layout_row="0"
+                android:layout_column="0"
+                android:layout_columnSpan="3"
+                android:text="수거 날짜"
+                android:textSize="23sp"
+                android:textStyle="bold"
+                android:paddingBottom="5dp"
+                android:paddingTop="5dp"
+                android:layout_marginTop="15dp"/>
+
+            <!-- 두 번째 줄: 날짜 -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_row="1"
+                android:layout_column="0"
+                android:text="2024.11.17 (일)"
+                android:gravity="start"
+
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+            <!-- 두 번째 줄: 시간 -->
+
+            <!-- 두 번째 줄: 상태 -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_row="1"
+                android:layout_column="1"
+                android:gravity="center"
+                android:paddingHorizontal="10dp"
+                android:text="15:00 - 18:00"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                android:layout_marginLeft="5dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_row="1"
+                android:layout_column="2"
+                android:text="수거 완료"
+                android:gravity="end"
+                android:layout_gravity="end"
+                android:textSize="18dp"
+                android:padding="5dp"
+                android:textStyle="bold" />
+        </GridLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingHorizontal="30dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="품목 정보"
+                android:textSize="23sp"
+                android:textStyle="bold"
+                android:padding="8dp"
+                android:layout_marginTop="25dp"
+                 />
+
+            <LinearLayout
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:orientation="horizontal"
+                android:background="@drawable/item_infobg"
+
+                >
+
+                <!-- 왼쪽 텍스트 -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="가루약"
+                    android:textSize="20sp"
+                    android:paddingLeft="30dp" />
+
+                <!-- 빈 공간을 채워 오른쪽으로 밀어내기 -->
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1" />
+
+                <!-- 오른쪽 텍스트 -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="12개"
+                    android:textStyle="bold"
+                    android:textSize="20sp"
+                    android:paddingRight="30dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:orientation="horizontal"
+                android:background="@drawable/item_infobg"
+                >
+
+                <!-- 왼쪽 텍스트 -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="알약(전문의약품)"
+                    android:textSize="20sp"
+                    android:paddingLeft="30dp" />
+
+                <!-- 빈 공간을 채워 오른쪽으로 밀어내기 -->
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1" />
+
+                <!-- 오른쪽 텍스트 -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="20개"
+                    android:textStyle="bold"
+                    android:textSize="20sp"
+                    android:paddingRight="30dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:orientation="horizontal"
+                android:background="@drawable/item_infobg"
+                >
+
+                <!-- 왼쪽 텍스트 -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="물약"
+                    android:textSize="20sp"
+                    android:paddingLeft="30dp" />
+
+                <!-- 빈 공간을 채워 오른쪽으로 밀어내기 -->
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1" />
+
+                <!-- 오른쪽 텍스트 -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="2개"
+                    android:textStyle="bold"
+                    android:textSize="20sp"
+                    android:paddingRight="30dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:orientation="horizontal"
+                android:background="@drawable/item_infobg"
+                >
+
+                <!-- 왼쪽 텍스트 -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="알약"
+                    android:textSize="20sp"
+                    android:paddingLeft="30dp" />
+
+                <!-- 빈 공간을 채워 오른쪽으로 밀어내기 -->
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1" />
+
+                <!-- 오른쪽 텍스트 -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="20개"
+                    android:textStyle="bold"
+                    android:textSize="20sp"
+                    android:paddingRight="30dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:orientation="horizontal"
+                android:background="@drawable/item_infobg"
+                >
+
+                <!-- 왼쪽 텍스트 -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="물약"
+                    android:textSize="20sp"
+                    android:paddingLeft="30dp" />
+
+                <!-- 빈 공간을 채워 오른쪽으로 밀어내기 -->
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1" />
+
+                <!-- 오른쪽 텍스트 -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="2개"
+                    android:textStyle="bold"
+                    android:textSize="20sp"
+                    android:paddingRight="30dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:orientation="horizontal"
+                android:background="@drawable/info_totalbg"
+                >
+
+                <!-- 왼쪽 텍스트 -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="총 개수"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:paddingLeft="30dp" />
+
+                <!-- 빈 공간을 채워 오른쪽으로 밀어내기 -->
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1" />
+
+                <!-- 오른쪽 텍스트 -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="34개"
+                    android:textStyle="bold"
+                    android:textSize="20sp"
+                    android:paddingRight="30dp" />
+            </LinearLayout>
+
+
+
+        </LinearLayout>
+
+        <GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:columnCount="2"
+            android:paddingHorizontal="30dp"
+            android:layout_margin="10dp"
+
+            >
+
+            <!-- 상단 큰 TextView: TITLE -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_row="0"
+                android:layout_column="0"
+                android:layout_columnSpan="2"
+                android:gravity="start"
+                android:text="수거 정보"
+                android:textSize="23sp"
+                android:textStyle="bold"
+                android:paddingBottom="10dp"
+                android:paddingTop="10dp"
+                android:layout_marginTop="25dp"
+                android:layout_marginBottom="15dp"/>
+
+            <!-- 첫 번째 줄: 주소 정보 -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_row="1"
+                android:layout_column="0"
+                android:gravity="start"
+                android:text="주소"
+                android:textSize="20sp"
+                android:paddingBottom="5dp"
+                android:textStyle="bold"
+                android:layout_marginBottom="15dp"/>
+
+            <!-- 첫 번째 줄: 주소 내용 -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_row="1"
+                android:layout_column="1"
+                android:gravity="end"
+                android:text="서울특별시 용산구 청파동"
+                android:textSize="20sp"
+                android:paddingBottom="5dp"
+                android:layout_marginLeft="20dp"
+                />
+
+            <!-- 두 번째 줄: 출입방법 정보 -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_row="2"
+                android:layout_column="0"
+                android:gravity="start"
+                android:text="출입방법"
+                android:textSize="20sp"
+                android:paddingBottom="5dp"
+                android:textStyle="bold"
+                android:layout_marginBottom="15dp"/>
+
+            <!-- 두 번째 줄: 출입방법 내용 -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_row="2"
+                android:layout_column="1"
+                android:gravity="end"
+                android:text="누구나 출입 가능"
+                android:textSize="20sp"
+                android:paddingBottom="5dp"
+                android:layout_marginLeft="20dp"/>
+
+            <!-- 세 번째 줄: 기타사항 정보 -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_row="3"
+                android:layout_column="0"
+                android:gravity="start"
+                android:text="기타사항"
+                android:textSize="20sp"
+                android:paddingBottom="5dp"
+                android:textStyle="bold"
+                android:layout_marginBottom="15dp"/>
+
+            <!-- 세 번째 줄: 기타사항 내용 -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_row="3"
+                android:layout_column="1"
+                android:gravity="end"
+                android:text="없음"
+                android:textSize="20sp"
+                android:paddingBottom="5dp"
+                android:layout_marginLeft="20dp"/>
+
+        </GridLayout>
+
+
+        <Gallery
+            android:id="@+id/galleryView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+
+
+    </LinearLayout>
+</ScrollView>
