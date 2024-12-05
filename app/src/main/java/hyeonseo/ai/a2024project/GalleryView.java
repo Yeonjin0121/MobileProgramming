@@ -19,7 +19,7 @@ public class GalleryView extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         imageView = new ImageView(context);
-        imageView.setLayoutParams(new Gallery.LayoutParams(400,400));
+        imageView.setLayoutParams(new Gallery.LayoutParams(450,450));
         imageView.setScaleType(ImageView.ScaleType.FIT_CENTER);
         imageView.setPadding(40,5,40,5);
         imageView.setImageResource(pillID[position]);

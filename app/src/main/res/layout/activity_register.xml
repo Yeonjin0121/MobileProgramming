@@ -4,38 +4,37 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:id="@+id/main"
-    android:padding="32dp"
+    android:background="@color/white"
     android:gravity="center">
 
-    <!-- 상단 LinearLayout (뒤로가기 버튼과 회원가입 창 제목) -->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center_vertical"
-        android:layout_marginBottom="40dp">
 
-        <!-- 뒤로 가기 버튼 -->
-        <ImageButton
-            android:id="@+id/btnBack"
-            android:layout_width="wrap_content"
+
+        <RelativeLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/back"
-            android:contentDescription="뒤로 가기 버튼"
-            android:background="?android:attr/selectableItemBackgroundBorderless"
-            android:layout_marginEnd="16dp"/>
+            android:background="@drawable/bottom_border"
+            >
 
-        <TextView
-            android:id="@+id/tvSignupTitle"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="회원가입"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:gravity="center"/>
+            <Button
+                android:id="@+id/back_button"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:background="@drawable/baseline_arrow_back_ios_new_24"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="30dp"/>
 
-    </LinearLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:text="회원 가입"
+                android:textStyle="bold"
+                android:textSize="25dp"
+                android:layout_centerInParent="true" />
+        </RelativeLayout>
+
+
 
     <TextView
         android:id="@+id/userTypeText"
@@ -43,7 +42,8 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"
         android:text="사용자 타입"
-        android:textSize="18sp" />
+        android:textSize="25sp"
+        android:layout_marginTop="20dp"/>
 
     <!-- 회원가입 화면 내용 LinearLayout (이름, 아이디, 이메일, 비밀번호, 비밀번호 확인 입력 필드) -->
     <LinearLayout
@@ -56,30 +56,45 @@
 
         <!-- 이름 입력 필드 -->
         <TextView
-            android:layout_width="match_parent"
+            android:layout_width="550dp"
             android:layout_height="wrap_content"
+            android:textSize="28sp"
             android:text="이름" />
 
         <EditText
             android:id="@+id/edtName"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="550dp"
+            android:layout_height="80dp"
+            android:background="@drawable/edittext_frame"
+            android:textSize="25sp"
+            android:layout_marginTop="5dp"
             android:hint="이름을 입력해주세요."
             android:inputType="textPersonName"
             android:importantForAccessibility="yes"
             android:contentDescription="이름 입력란"
-            android:layout_marginBottom="20dp"/>
+            android:paddingLeft="10dp"
+            android:layout_marginBottom="20dp"
+
+
+            />
 
         <!-- 아이디 입력 필드 -->
         <TextView
-            android:layout_width="match_parent"
+            android:layout_width="550dp"
             android:layout_height="wrap_content"
-            android:text="아이디" />
+            android:textSize="28sp"
+            android:text="아이디"
+            android:layout_marginTop="20dp"/>
 
         <EditText
             android:id="@+id/edtUsername"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="550dp"
+            android:layout_height="80dp"
+            android:paddingLeft="10dp"
+            android:layout_marginTop="5dp"
+
+            android:background="@drawable/edittext_frame"
+            android:textSize="25sp"
             android:hint="아이디를 입력해주세요."
             android:inputType="text"
             android:importantForAccessibility="yes"
@@ -88,15 +103,22 @@
 
         <!-- 이메일 입력 필드 -->
         <TextView
-            android:layout_width="match_parent"
+            android:layout_width="550dp"
             android:layout_height="wrap_content"
-            android:text="이메일" />
+            android:textSize="28sp"
+            android:text="이메일"
+            android:layout_marginTop="20dp"/>
 
         <EditText
             android:id="@+id/edtEmail"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="550dp"
+            android:layout_height="80dp"
+            android:background="@drawable/edittext_frame"
+            android:textSize="25sp"
             android:hint="이메일을 입력해주세요."
+            android:paddingLeft="10dp"
+            android:layout_marginTop="5dp"
+
             android:inputType="textEmailAddress"
             android:importantForAccessibility="yes"
             android:contentDescription="이메일 입력란"
@@ -104,15 +126,23 @@
 
         <!-- 비밀번호 입력 필드 -->
         <TextView
-            android:layout_width="match_parent"
+            android:layout_width="550dp"
             android:layout_height="wrap_content"
-            android:text="비밀번호" />
+            android:textSize="28sp"
+            android:text="비밀번호"
+            android:layout_marginTop="20dp"/>
 
         <EditText
             android:id="@+id/edtPassword"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="550dp"
+            android:layout_height="80dp"
+            android:background="@drawable/edittext_frame"
+            android:textSize="25sp"
             android:hint="비밀번호를 입력해주세요."
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:layout_marginTop="5dp"
+
             android:inputType="textPassword"
             android:drawableEnd="@drawable/visibility_off"
             android:importantForAccessibility="yes"
@@ -121,30 +151,45 @@
 
         <!-- 비밀번호 확인 입력 필드 -->
         <TextView
-            android:layout_width="match_parent"
+            android:layout_width="550dp"
             android:layout_height="wrap_content"
-            android:text="비밀번호 확인" />
+            android:textSize="28sp"
+            android:text="비밀번호 확인"
+            android:layout_marginTop="20dp"/>
 
         <EditText
             android:id="@+id/edtConfirmPassword"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="550dp"
+            android:layout_height="80dp"
+            android:background="@drawable/edittext_frame"
+            android:textSize="25sp"
+            android:layout_marginTop="5dp"
+
             android:hint="비밀번호를 다시 입력해주세요."
+            android:paddingLeft="10dp"
             android:inputType="textPassword"
             android:drawableEnd="@drawable/visibility_off"
+            android:paddingRight="10dp"
             android:importantForAccessibility="yes"
             android:contentDescription="비밀번호 확인 입력란" />
+
+
 
     </LinearLayout>
 
     <!-- 회원가입 버튼 (하단에 고정) -->
     <Button
         android:id="@+id/btnSignup"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="550dp"
+        android:layout_height="70dp"
+        android:layout_marginBottom="120dp"
         android:text="회원가입"
-        android:background="#DDF3FF"
+        android:textSize="28sp"
+        android:paddingLeft="5dp"
+        android:textColor="@color/black"
+        android:backgroundTint="@color/btn_color2"
         android:importantForAccessibility="yes"
+        android:textStyle="bold"
         android:contentDescription="회원가입 버튼"/>
 
 </LinearLayout>

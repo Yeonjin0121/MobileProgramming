@@ -11,4 +11,12 @@
     <color name="yellow">#FFDC7E</color>
     <color name="light_peach">#FFF3D2</color>
     <color name="yellow_green">#EFFDE1</color>
+
+
+    <color name="main">#0AC290</color>
+    <color name="btn_color">#51CA97</color>
+    <color name="btn_color2">#CEF3E9</color>
+    <color name="bg_color">#59CEF3E9</color>
+    <color name="bg_color2">#40CEF3E9</color>
+
 </resources>

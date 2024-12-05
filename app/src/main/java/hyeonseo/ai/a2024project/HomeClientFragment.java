@@ -17,10 +17,20 @@ import androidx.fragment.app.Fragment;
 
 
 
-public class HomeClientActivity extends Fragment {
+public class HomeClientFragment extends Fragment {
 
     private String userType; // 전달받은 사용자 타입
     private String username; // 전달받은 사용자 이름
+
+    // newInstance() 메서드 추가
+    public static HomeClientFragment newInstance(String userType, String username) {
+        HomeClientFragment fragment = new HomeClientFragment();
+        Bundle args = new Bundle();
+        args.putString("user_type", userType);
+        args.putString("username", username);
+        fragment.setArguments(args);
+        return fragment;
+    }
 
     @Nullable
     @Override
@@ -41,7 +51,7 @@ public class HomeClientActivity extends Fragment {
         }
 
         // TextView 설정
-        TextView textView = view.findViewById(R.id.textView);
+        TextView textView = view.findViewById(R.id.home_textView);
         textView.setText(username + " 님은 현재\n 새싹등급이에요!");
 
         // FrameLayout 클릭 이벤트 설정
@@ -57,10 +67,10 @@ public class HomeClientActivity extends Fragment {
         // FrameLayout 클릭 이벤트 설정
         FrameLayout frameLayoutApply = view.findViewById(R.id.apply);
         frameLayoutApply.setOnClickListener(v -> {
-            Intent howToUseIntent = new Intent(getActivity(), ApplyCollectionActivity.class);
-            howToUseIntent.putExtra("user_type", userType);
-            howToUseIntent.putExtra("username", username);
-            startActivity(howToUseIntent);
+            Intent ApplyIntent = new Intent(getActivity(), ApplyCollectionActivity.class);
+            ApplyIntent.putExtra("user_type", userType);
+            ApplyIntent.putExtra("username", username);
+            startActivity(ApplyIntent);
         });
 
         return view;

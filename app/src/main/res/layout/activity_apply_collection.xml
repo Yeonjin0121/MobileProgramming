@@ -2,42 +2,42 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/bg_color2">
 
-    <LinearLayout
+    <RelativeLayout
         android:id="@+id/top_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:background="#FFFFFF"
-        android:padding="16dp"
+        android:background="@drawable/bottom_border"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 
-        <ImageView
+        <!-- 왼쪽 꺽쇠 버튼 -->
+        <Button
             android:id="@+id/back_button"
-            android:layout_width="50dp"
-            android:layout_height="32dp"
-            android:layout_gravity="center_vertical"
-            android:contentDescription="@string/back_button_description"
-            android:paddingEnd="16dp"
-            android:src="@drawable/baseline_arrow_back_ios_new_24"
-            app:tint="@color/yellow" />
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="@drawable/baseline_arrow_back_ios_new_24"
+            android:contentDescription="Back"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="16dp"
+            android:layout_marginStart="16dp" />
 
+        <!-- 수거 신청 텍스트 -->
         <TextView
-            android:id="@+id/center_text"
-            android:layout_width="200dp"
+            android:id="@+id/header_title"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:paddingStart="0dp"
-            android:paddingEnd="50dp"
+            android:padding="10dp"
             android:text="배출 품목 선택"
-            android:textColor="#000000"
-            android:textSize="18sp" />
-    </LinearLayout>
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:textSize="25sp"
+            android:layout_centerInParent="true" />
+    </RelativeLayout>
 
     <!-- 구분선 -->
     <View
@@ -67,16 +67,20 @@
         app:layout_constraintEnd_toEndOf="parent" />
 
     <!-- 다음 버튼 -->
+
     <Button
         android:id="@+id/next_button"
-        android:layout_width="match_parent"
-        android:layout_height="56dp"
-        android:background="#FFC107"
+        android:layout_width="380dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="30dp"
         android:text="다음"
-        android:textColor="#FFFFFF"
-        android:textSize="16sp"
+        android:textColor="@color/white"
+        android:textSize="30sp"
+        android:background="@drawable/edittext_frame"
+        app:backgroundTint="@color/btn_color"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

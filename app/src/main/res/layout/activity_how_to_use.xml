@@ -3,15 +3,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="16dp"
-    android:id = "@+id/main"
-    android:background="#FFFFFF">
+    android:padding="20dp"
+    android:id = "@+id/howtouse2"
+    android:background="@color/white">
 
     <!-- 상단 탭 -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
+        android:layout_gravity="center"
+        android:gravity="center"
         android:weightSum="2"
         android:layout_marginBottom="16dp">
 
@@ -21,24 +23,32 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="서비스 이용 방법"
-            android:textSize="16sp"
-            android:gravity="center"
+            android:textSize="25sp"
             android:id="@+id/textViewHowToUseService"
-            android:background="#E0E0E0"
+            android:gravity="center"
+            android:background="@drawable/edittext_frame"
+            android:backgroundTint="@color/bg_color"
             android:padding="8dp"
-            android:textColor="#9E9E9E" />
+            android:textColor="#9E9E9E"
+            android:layout_marginRight="10dp"
+
+            />
 
         <!-- 폐의약품 처리 방법 탭 -->
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:id="@+id/textViewHowToUse"
             android:text="폐의약품 처리 방법"
-            android:textSize="16sp"
+            android:textSize="25sp"
             android:gravity="center"
-            android:background="#FFE082"
+            android:background="@drawable/edittext_frame"
+            android:backgroundTint="@color/btn_color"
             android:padding="8dp"
-            android:textColor="#000000" />
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:layout_marginRight="10dp" />
     </LinearLayout>
 
     <!-- 스크롤 뷰 -->
@@ -58,18 +68,21 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="폐의약품은 생태계 유해 폐기물입니다. 따라서 지정된 수거처에 배출하지 않으면 환경오염을 일으키고 생태계를 교란할 뿐만 아니라 슈퍼박테리아를 만들 수도 있습니다."
-                android:textSize="14sp"
+                android:text="폐의약품은 생태계 유해 폐기물입니다. \n따라서 지정된 수거처에 배출하지 않으면 환경오염을 일으키고 \n생태계 교란 뿐만 아니라 슈퍼박테리아를 만들 수도 있습니다."
+                android:textSize="28sp"
                 android:textColor="#424242"
+                android:lineHeight="40dp"
                 android:layout_marginBottom="8dp" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="약 종류별로 폐기 방법이 다르다는 것, 알고 계셨나요?"
-                android:textSize="14sp"
-                android:textColor="#424242"
-                android:layout_marginBottom="16dp" />
+                android:textSize="27sp"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:layout_marginTop="25dp"
+                android:layout_marginBottom="50dp" />
 
             <!-- 약 종류별 폐기 방법 -->
             <TextView
@@ -77,7 +90,7 @@
                 android:layout_height="wrap_content"
                 android:text="약 종류별 폐기 방법"
                 android:textStyle="bold"
-                android:textSize="14sp"
+                android:textSize="33sp"
                 android:textColor="#424242"
                 android:layout_marginTop="20dp"
                 android:layout_marginBottom="16dp" />
@@ -95,17 +108,17 @@
 
                     <!-- 일반의약품 카드 -->
                     <LinearLayout
-                        android:layout_width="250dp"
-                        android:layout_height="wrap_content"
+                        android:layout_width="280dp"
+                        android:layout_height="260dp"
                         android:orientation="vertical"
                         android:padding="8dp"
-                        android:background="#FFF9C4"
+                        android:background="@color/bg_color"
                         android:layout_marginEnd="8dp"
                         android:gravity="center">
 
                         <ImageView
-                            android:layout_width="64dp"
-                            android:layout_height="64dp"
+                            android:layout_width="120dp"
+                            android:layout_height="120dp"
                             android:src="@drawable/general_medicine"
                             android:contentDescription="알약 일반의약품" />
 
@@ -113,8 +126,9 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="알약(일반의약품)"
-                            android:textSize="14sp"
-                            android:textColor="#000000"
+                            android:textSize="25sp"
+                            android:textStyle="bold"
+                            android:textColor="#424242"
                             android:gravity="center"
                             android:layout_marginTop="8dp" />
 
@@ -122,7 +136,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="포장된 비닐, 종이 등을 제거한 후 내용물만 봉투에 담아 배출"
-                            android:textSize="12sp"
+                            android:textSize="20sp"
                             android:textColor="#757575"
                             android:gravity="center"
                             android:layout_marginTop="4dp" />
@@ -130,17 +144,17 @@
 
                     <!-- 전문의약품 카드 -->
                     <LinearLayout
-                        android:layout_width="250dp"
-                        android:layout_height="wrap_content"
+                        android:layout_width="280dp"
+                        android:layout_height="260dp"
                         android:orientation="vertical"
                         android:padding="8dp"
-                        android:background="#FFF9C4"
+                        android:background="@color/bg_color"
                         android:layout_marginEnd="8dp"
                         android:gravity="center">
 
                         <ImageView
-                            android:layout_width="64dp"
-                            android:layout_height="64dp"
+                            android:layout_width="120dp"
+                            android:layout_height="120dp"
                             android:src="@drawable/professional_medicine"
                             android:contentDescription="알약 전문의약품" />
 
@@ -148,8 +162,9 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="알약(전문의약품)"
-                            android:textSize="14sp"
-                            android:textColor="#000000"
+                            android:textSize="25sp"
+                            android:textStyle="bold"
+                            android:textColor="#424242"
                             android:gravity="center"
                             android:layout_marginTop="8dp" />
 
@@ -157,24 +172,24 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="포장된 비닐, 종이 등을 제거한 후 내용물만 봉투에 담아 배출"
-                            android:textSize="12sp"
+                            android:textSize="20sp"
                             android:textColor="#757575"
                             android:gravity="center"
                             android:layout_marginTop="4dp" />
                     </LinearLayout>
                     <!-- 가루약 카드 -->
                     <LinearLayout
-                        android:layout_width="250dp"
-                        android:layout_height="wrap_content"
+                        android:layout_width="280dp"
+                        android:layout_height="260dp"
                         android:orientation="vertical"
                         android:padding="8dp"
-                        android:background="#FFF9C4"
+                        android:background="@color/bg_color"
                         android:layout_marginEnd="8dp"
                         android:gravity="center">
 
                         <ImageView
-                            android:layout_width="64dp"
-                            android:layout_height="64dp"
+                            android:layout_width="120dp"
+                            android:layout_height="120dp"
                             android:src="@drawable/powder_medicine"
                             android:contentDescription="가루약" />
 
@@ -182,8 +197,9 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="가루약"
-                            android:textSize="14sp"
-                            android:textColor="#000000"
+                            android:textSize="25sp"
+                            android:textStyle="bold"
+                            android:textColor="#424242"
                             android:gravity="center"
                             android:layout_marginTop="8dp" />
 
@@ -191,7 +207,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="포장지를 뜯지 않고 그대로 제출"
-                            android:textSize="12sp"
+                            android:textSize="20sp"
                             android:textColor="#757575"
                             android:gravity="center"
                             android:layout_marginTop="4dp" />
@@ -199,16 +215,16 @@
 
                     <!-- 특수 용기 카드 -->
                     <LinearLayout
-                        android:layout_width="250dp"
-                        android:layout_height="wrap_content"
+                        android:layout_width="280dp"
+                        android:layout_height="260dp"
                         android:orientation="vertical"
                         android:padding="8dp"
-                        android:background="#FFF9C4"
+                        android:background="@color/bg_color"
                         android:gravity="center">
 
                         <ImageView
-                            android:layout_width="64dp"
-                            android:layout_height="64dp"
+                            android:layout_width="120dp"
+                            android:layout_height="120dp"
                             android:src="@drawable/special_container"
                             android:contentDescription="연고 등 특수 용기" />
 
@@ -216,8 +232,9 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="연고 등 특수 용기"
-                            android:textSize="14sp"
-                            android:textColor="#000000"
+                            android:textSize="25sp"
+                            android:textStyle="bold"
+                            android:textColor="#424242"
                             android:gravity="center"
                             android:layout_marginTop="8dp" />
 
@@ -225,7 +242,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="겉에 종이박스만 분리해 폐기하고 용기째 배출"
-                            android:textSize="12sp"
+                            android:textSize="20sp"
                             android:textColor="#757575"
                             android:gravity="center"
                             android:layout_marginTop="4dp" />
@@ -244,65 +261,66 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="폐의약품은 어디에 버릴까요?"
-                    android:textSize="18sp"
                     android:textStyle="bold"
-                    android:textColor="#000000"
+                    android:textSize="32sp"
+                    android:textColor="#424242"
+
                     android:layout_marginBottom="16dp" />
 
                 <!-- 목록 항목 -->
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="주민센터"
-                    android:textSize="14sp"
+                    android:text="•  주민센터"
+                    android:textSize="28sp"
                     android:textColor="#000000"
                     android:layout_marginBottom="8dp" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="공동주택"
-                    android:textSize="14sp"
+                    android:text="•  공동주택"
+                    android:textSize="28sp"
                     android:textColor="#000000"
                     android:layout_marginBottom="8dp" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="약국"
-                    android:textSize="14sp"
+                    android:text="•  약국"
+                    android:textSize="28sp"
                     android:textColor="#000000"
                     android:layout_marginBottom="8dp" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="우체통"
-                    android:textSize="14sp"
+                    android:text="•  우체통"
+                    android:textSize="28sp"
                     android:textColor="#000000"
                     android:layout_marginBottom="8dp" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="보건소"
-                    android:textSize="14sp"
+                    android:text="•  보건소"
+                    android:textSize="28sp"
                     android:textColor="#000000"
                     android:layout_marginBottom="8dp" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="구청"
-                    android:textSize="14sp"
+                    android:text="•  구청"
+                    android:textSize="28sp"
                     android:textColor="#000000"
                     android:layout_marginBottom="8dp" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="복지관"
-                    android:textSize="14sp"
+                    android:text="•  복지관"
+                    android:textSize="28sp"
                     android:textColor="#000000"
                     android:layout_marginBottom="8dp" />
 
@@ -312,11 +330,12 @@
 
     <!-- 하단의 다음 버튼 -->
     <Button
-        android:layout_width="match_parent"
+        android:layout_width="600dp"
         android:layout_height="wrap_content"
         android:text="홈 화면으로"
-        android:textSize="16sp"
-        android:background="#FF9800"
+        android:textSize="23sp"
+        android:paddingBottom="5dp"
+        android:backgroundTint="@color/btn_color"
         android:textColor="#FFFFFF"
         android:layout_marginTop="32dp"
         android:id="@+id/btnHome"

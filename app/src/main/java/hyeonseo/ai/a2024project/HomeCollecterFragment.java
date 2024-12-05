@@ -16,10 +16,20 @@ import androidx.core.view.WindowInsetsCompat;
 import androidx.fragment.app.Fragment;
 
 
-public class HomeCollecterActivity extends Fragment {
+public class HomeCollecterFragment extends Fragment {
 
     private String userType; // 전달받은 사용자 타입
     private String username; // 전달받은 사용자 이름
+
+    // newInstance() 메서드 추가
+    public static HomeCollecterFragment newInstance(String userType, String username) {
+        HomeCollecterFragment fragment = new HomeCollecterFragment();
+        Bundle args = new Bundle();
+        args.putString("user_type", userType);
+        args.putString("username", username);
+        fragment.setArguments(args);
+        return fragment;
+    }
 
     @Nullable
     @Override
@@ -40,7 +50,7 @@ public class HomeCollecterActivity extends Fragment {
         }
 
         // TextView 설정
-        TextView textView = view.findViewById(R.id.textView);
+        TextView textView = view.findViewById(R.id.home_textView);
         textView.setText(username + " 님은 현재\n 새싹등급이에요!");
 
         // FrameLayout 클릭 이벤트 설정

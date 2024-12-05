@@ -35,6 +35,8 @@ public class listAdapter extends RecyclerView.Adapter<listViewHolder> {
         holder.drugType2.setText(currentData.getTv_Dtype2());
         holder.drugType3.setText(currentData.getTv_Dtype3());
 
+
+
         // RecyclerView 아이템 클릭 리스너 추가
         holder.itemView.setOnClickListener(v -> {
             // 클릭 시 AboutDetails Activity로 이동

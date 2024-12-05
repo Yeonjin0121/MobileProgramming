@@ -5,51 +5,48 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/white"
     tools:context=".ApplyInfoActivity"
     android:fitsSystemWindows="true"
+    android:background="@color/bg_color2"
     >
 
     <!-- 새로운 상단 영역 -->
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <RelativeLayout
         android:id="@+id/top_bar"
-        android:layout_marginTop="20dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@android:color/white"
-        android:padding="16dp"
+        android:background="@drawable/bottom_border"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 
-        <!-- 왼쪽 꺽쇄 버튼 -->
-        <ImageButton
+        <!-- 왼쪽 꺽쇠 버튼 -->
+        <Button
             android:id="@+id/back_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="?attr/selectableItemBackgroundBorderless"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="@drawable/baseline_arrow_back_ios_new_24"
             android:contentDescription="Back"
-            android:src="@drawable/baseline_arrow_back_ios_new_24"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
-
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="16dp"
+            android:layout_marginStart="16dp" />
 
         <!-- 수거 신청 텍스트 -->
         <TextView
             android:id="@+id/header_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="상세 정보 입력"
+            android:padding="10dp"
+            android:text="수거 신청 상세"
             android:textColor="@color/black"
-            android:textSize="18sp"
             android:textStyle="bold"
-            app:layout_constraintStart_toEndOf="@id/back_button"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.456" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            android:textSize="25sp"
+            android:layout_centerInParent="true" />
+    </RelativeLayout>
+
+
+
 
     <!-- 구분선 -->
     <View
@@ -68,6 +65,8 @@
         android:layout_height="wrap_content"
         android:background="@android:color/white"
         app:layout_constraintTop_toBottomOf="@id/top_bar"
+        android:layout_marginTop="60dp"
+        android:padding="10dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 
@@ -79,7 +78,8 @@
             android:layout_marginTop="8dp"
             android:layout_marginBottom="20dp"
             android:text="주소 정보"
-            android:textSize="18sp"
+            android:textSize="32sp"
+            android:textStyle="bold"
             android:textColor="@color/black"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
@@ -88,28 +88,47 @@
             android:id="@+id/address_detail_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
+            android:layout_marginStart="20dp"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="10dp"
             android:text="서울시 용산구 청파동"
             android:textColor="@color/black"
-            android:textSize="16sp"
+            android:textSize="28sp"
             app:layout_constraintTop_toBottomOf="@id/address_info_text"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintBottom_toBottomOf="parent" />
+
+        <EditText
+            android:id="@+id/address_detail_edit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="10dp"
+            android:hint="주소를 입력하세요"
+            android:textColor="@color/black"
+            android:textSize="28sp"
+            android:visibility="gone"
+            app:layout_constraintTop_toBottomOf="@id/address_info_text"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+        />
 
         <Button
             android:id="@+id/change_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="16dp"
+            android:layout_marginEnd="20dp"
             android:layout_marginTop="8dp"
             android:text="변경"
+            android:textSize="20dp"
             android:textColor="@color/black"
-            android:background="@color/yellow_green"
+            android:background="@drawable/btn_border"
             app:backgroundTint="@null"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintBottom_toBottomOf="@id/address_detail_text"
+            app:layout_constraintEnd_toEndOf="parent"
+
+            />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <!-- 구분선 -->
@@ -137,6 +156,53 @@
             android:orientation="vertical"
             android:padding="16dp">
 
+            <!-- 스크롤 영역의 LinearLayout 내부 최상단에 추가 -->
+            <TextView
+                android:id="@+id/upload_image_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:text="수거할 물품 이미지"
+                android:textSize="32sp"
+                android:textStyle="bold"
+                android:textColor="@color/black" />
+
+            <ImageButton
+                android:id="@+id/upload_image_button"
+                android:layout_width="65dp"
+                android:layout_height="65dp"
+                android:layout_marginLeft="20dp"
+                android:src="@drawable/baseline_image_search_24"
+                android:backgroundTint="@color/btn_color2"
+                android:layout_marginBottom="10dp"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/image_recycler_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:scrollbars="horizontal"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                android:orientation="horizontal"
+                android:layout_marginBottom="20dp"/>
+
+
+
+            <ImageView
+                android:id="@+id/selected_image"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_marginBottom="20dp"
+                android:scaleType="centerCrop"
+                android:visibility="gone" />
+
+            <View
+                android:id="@+id/line_divider_1"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="20dp"
+                android:background="@android:color/darker_gray" />
+
             <!-- 수거 날짜 -->
             <TextView
                 android:id="@+id/collection_date_text"
@@ -145,16 +211,18 @@
                 android:layout_marginBottom="10dp"
                 android:text="수거 날짜"
                 android:textColor="@color/black"
-                android:textSize="18sp" />
+                android:textSize="32sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/selected_date_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="10dp"
+                android:layout_marginBottom="20dp"
+                android:layout_marginLeft="20dp"
                 android:textColor="@color/black"
                 android:text="선택된 날짜 및 요일"
-                android:textSize="16sp" />
+                android:textSize="28sp" />
 
             <Button
                 android:id="@+id/select_date_button"
@@ -162,8 +230,10 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="20dp"
                 android:text="날짜 선택"
+                android:layout_marginLeft="20dp"
+                android:textSize="20sp"
                 android:textColor="@color/black"
-                android:background="@color/yellow_green"
+                android:background="@drawable/btn_border"
                 app:backgroundTint="@null" />
 
             <View
@@ -179,69 +249,161 @@
                 android:layout_marginBottom="20dp"
                 android:text="수거 시간대"
                 android:textColor="@color/black"
-                android:textSize="18sp" />
+                android:textSize="32sp"
+                android:textStyle="bold" />
 
-            <GridLayout
+            <HorizontalScrollView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:columnCount="1"
-                android:paddingLeft="10dp">
+                android:layout_marginBottom="24dp"
+                >
 
-                <Button
-                    android:id="@+id/time_button_one"
+                <LinearLayout
                     android:layout_width="wrap_content"
-                    android:layout_height="40dp"
-                    android:layout_margin="10dp"
-                    android:textColor="@android:color/black"
-                    android:background="@drawable/btn_time_selected"
-                    android:text="06:00 ~ 09:00" />
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="10dp"
+                    android:gravity="center_vertical">
 
-                <Button
-                    android:id="@+id/time_button_two"
-                    android:layout_width="wrap_content"
-                    android:layout_height="40dp"
-                    android:layout_margin="10dp"
-                    android:textColor="@android:color/black"
-                    android:background="@drawable/btn_time_selected"
-                    android:text="09:00 ~ 12:00" />
+                    <Button
+                        android:id="@+id/time_button_6"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/btn_bg"
+                        app:backgroundTint="@null"
+                        android:textSize="25sp"
+                        android:layout_margin="12dp"
 
-                <Button
-                    android:id="@+id/time_button_three"
-                    android:layout_width="wrap_content"
-                    android:layout_height="40dp"
-                    android:layout_margin="10dp"
-                    android:textColor="@android:color/black"
-                    android:background="@drawable/btn_time_selected"
-                    android:text="12:00 ~ 15:00" />
+                        android:textColor="@android:color/black"
+                        android:text="06:00 ~ 07:00"
+                        />
 
-                <Button
-                    android:id="@+id/time_button_four"
-                    android:layout_width="wrap_content"
-                    android:layout_height="40dp"
-                    android:layout_margin="10dp"
-                    android:textColor="@android:color/black"
-                    android:background="@drawable/btn_time_selected"
-                    android:text="15:00 ~ 18:00" />
+                    <Button
+                        android:id="@+id/time_button_7"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/btn_bg"
+                        app:backgroundTint="@null"
+                        android:textSize="25sp"
+                        android:layout_margin="12dp"
 
-                <Button
-                    android:id="@+id/time_button_five"
-                    android:layout_width="wrap_content"
-                    android:layout_height="40dp"
-                    android:layout_margin="10dp"
-                    android:textColor="@android:color/black"
-                    android:background="@drawable/btn_time_selected"
-                    android:text="18:00 ~ 21:00" />
 
-                <Button
-                    android:id="@+id/time_button_six"
-                    android:layout_width="wrap_content"
-                    android:layout_height="40dp"
-                    android:layout_margin="10dp"
-                    android:textColor="@android:color/black"
-                    android:background="@drawable/btn_time_selected"
-                    android:text="21:00 ~ 24:00" />
-                <!-- 나머지 버튼 생략 -->
-            </GridLayout>
+                        android:textColor="@android:color/black"
+                        android:text="07:00 ~ 08:00" />
+
+                    <Button
+                        android:id="@+id/time_button_8"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/btn_bg"
+                        app:backgroundTint="@null"
+                        android:textSize="25sp"
+                        android:layout_margin="12dp"
+                        android:textColor="@android:color/black"
+                        android:text="08:00 ~ 09:00" />
+
+                    <Button
+                        android:id="@+id/time_button_9"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/btn_bg"
+                        app:backgroundTint="@null"
+                        android:textSize="25sp"
+                        android:layout_margin="12dp"
+                        android:textColor="@android:color/black"
+                        android:text="09:00 ~ 10:00" />
+
+                    <Button
+                        android:id="@+id/time_button_10"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/btn_bg"
+                        app:backgroundTint="@null"
+                        android:textSize="25sp"
+                        android:layout_margin="12dp"
+                        android:textColor="@android:color/black"
+
+                        android:text="10:00 ~ 11:00" />
+
+                    <Button
+                        android:id="@+id/time_button_11"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/btn_bg"
+                        app:backgroundTint="@null"
+                        android:textSize="25sp"
+                        android:layout_margin="12dp"
+                        android:textColor="@android:color/black"
+                        android:text="11:00 ~ 12:00" />
+
+                    <Button
+                        android:id="@+id/time_button_12"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/btn_bg"
+                        app:backgroundTint="@null"
+                        android:textSize="25sp"
+                        android:layout_margin="12dp"
+                        android:textColor="@android:color/black"
+                        android:text="12:00 ~ 13:00" />
+
+                    <Button
+                        android:id="@+id/time_button_13"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/btn_bg"
+                        app:backgroundTint="@null"
+                        android:textSize="25sp"
+                        android:layout_margin="12dp"
+                        android:textColor="@android:color/black"
+                        android:text="13:00 ~ 14:00" />
+
+                    <Button
+                        android:id="@+id/time_button_14"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/btn_bg"
+                        app:backgroundTint="@null"
+                        android:textSize="25sp"
+                        android:layout_margin="12dp"
+                        android:textColor="@android:color/black"
+                        android:text="14:00 ~ 15:00" />
+
+                    <Button
+                        android:id="@+id/time_button_15"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/btn_bg"
+                        app:backgroundTint="@null"
+                        android:textSize="25sp"
+                        android:layout_margin="12dp"
+                        android:textColor="@android:color/black"
+                        android:text="15:00 ~ 16:00" />
+
+                    <Button
+                        android:id="@+id/time_button_16"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/btn_bg"
+                        app:backgroundTint="@null"
+                        android:textSize="25sp"
+                        android:layout_margin="12dp"
+                        android:textColor="@android:color/black"
+                        android:text="16:00 ~ 17:00" />
+
+                    <Button
+                        android:id="@+id/time_button_17"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/btn_bg"
+                        app:backgroundTint="@null"
+                        android:textSize="25sp"
+                        android:layout_margin="12dp"
+                        android:textColor="@android:color/black"
+                        android:text="17:00 ~ 18:00" />
+
+                </LinearLayout>
+            </HorizontalScrollView>
 
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
@@ -252,10 +414,10 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="30dp"
         android:text="다음"
-        android:textColor="@color/black"
-        android:textSize="50px"
-        android:background="@color/yellow_green"
-        app:backgroundTint="@null"
+        android:textColor="@color/white"
+        android:textSize="30sp"
+        android:background="@drawable/edittext_frame"
+        app:backgroundTint="@color/btn_color"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />

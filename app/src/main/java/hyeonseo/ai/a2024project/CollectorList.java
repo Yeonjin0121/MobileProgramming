@@ -68,18 +68,26 @@ public class CollectorList extends Fragment {
         RecyclerView recyclerView = rootView.findViewById(R.id.recyclerViewCollector);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
+
+
+
+
+
+
         // Sample data for the adapter
         List<listData> dataList = new ArrayList<>();
-        dataList.add(new listData("2024.10.28", R.drawable.ic_launcher_background, "총 34개", "Type1", "Type2", "Type3"));
-        dataList.add(new listData("2024.10.29", R.drawable.ic_launcher_background, "총 24개", "TypeA", "TypeB", "TypeC"));
-        dataList.add(new listData("2024.10.28", R.drawable.ic_launcher_background, "총 34개", "Type1", "Type2", "Type3"));
-        dataList.add(new listData("2024.10.29", R.drawable.ic_launcher_background, "총 24개", "TypeA", "TypeB", "TypeC"));
-        dataList.add(new listData("2024.10.29", R.drawable.ic_launcher_background, "총 24개", "TypeA", "TypeB", "TypeC"));
-        dataList.add(new listData("2024.10.28", R.drawable.ic_launcher_background, "총 34개", "Type1", "Type2", "Type3"));
-        dataList.add(new listData("2024.10.29", R.drawable.ic_launcher_background, "총 24개", "TypeA", "TypeB", "TypeC"));
-        dataList.add(new listData("2024.10.28", R.drawable.ic_launcher_background, "총 34개", "Type1", "Type2", "Type3"));
-        dataList.add(new listData("2024.10.29", R.drawable.ic_launcher_background, "총 24개", "TypeA", "TypeB", "TypeC"));
-        dataList.add(new listData("2024.10.29", R.drawable.ic_launcher_background, "총 24개", "TypeA", "TypeB", "TypeC"));
+        dataList.add(new listData("2024.01.21", R.drawable.pill1, "총 07개", "알약 (조제약)", "", ""));
+        dataList.add(new listData("2024.03.10", R.drawable.pill2, "총 24개", "알약 (조제약)", "", ""));
+        dataList.add(new listData("2024.04.05", R.drawable.pill3, "총 34개", "알약 (조제약)", "알약 (정제형)", ""));
+        dataList.add(new listData("2024.05.07", R.drawable.pill4, "총 14개", "알약 (조제약)", "", ""));
+        dataList.add(new listData("2024.05.11", R.drawable.pill5, "총 1개", "알약 (정제형)", "", ""));
+        dataList.add(new listData("2024.06.21", R.drawable.pill6, "총 27개", "알약 (조제약)", "알약 (정제형)", ""));
+        dataList.add(new listData("2024.06.28", R.drawable.pill1, "총 13개", "알약 (조제약)", "", ""));
+        dataList.add(new listData("2024.08.04", R.drawable.pill2, "총 24개", "알약 (조제약)", "", ""));
+        dataList.add(new listData("2024.11.18", R.drawable.pill3, "총 19개", "알약 (조제약)", "알약 (정제형)", ""));
+        dataList.add(new listData("2024.12.01", R.drawable.pill4, "총 14개", "알약 (조제약)", "", ""));
+        dataList.add(new listData("2024.06.21", R.drawable.pill6, "총 27개", "알약 (조제약)", "알약 (정제형)", ""));
+        dataList.add(new listData("2024.12.29", R.drawable.pill5, "총 18개", "TypeA", "TypeB", "TypeC"));
 
         // Setting the adapter
         listAdapter adapter = new listAdapter(dataList);

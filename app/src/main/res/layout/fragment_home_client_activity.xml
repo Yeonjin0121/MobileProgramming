@@ -1,19 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".HomeClientActivity"
+    tools:context=".HomeClientFragment"
     android:layout_marginBottom="60dp"
+    android:backgroundTint="@color/btn_color2"
     >
 
     <LinearLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
         android:id="@+id/main"
         android:layout_width="match_parent"
-        android:background="#EFFDE1"
+        android:background="@color/btn_color2"
         android:layout_height="match_parent"
         android:orientation="vertical"
         tools:context=".HomeFragment">
@@ -45,15 +44,15 @@
             android:padding="16dp">
 
             <TextView
+                android:id="@+id/home_textView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="left"
-                android:id="@+id/textView"
                 android:layout_marginLeft="30dp"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="30dp"
                 android:lineSpacingExtra="8dp"
                 android:textColor="#000000"
-                android:textSize="18sp" />
+                android:textSize="30sp" />
 
             <ImageView
                 android:layout_width="184dp"
@@ -66,82 +65,112 @@
                 android:src="@drawable/rank" />
         </LinearLayout>
 
-        <!-- 수거신청과 이용방법을 위한 정사각형 요소, 이미지와 텍스트 포함 -->
-        <LinearLayout
+        <androidx.cardview.widget.CardView
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center"
-            android:padding="16dp"
             android:layout_weight="1"
-            android:background="@drawable/bigframe">
+            app:cardCornerRadius="30dp"
+            app:cardElevation="8dp"
+            app:cardBackgroundColor="#FFFFFFFF"
+            >
 
-            <FrameLayout
-                android:id="@+id/apply"
-                android:layout_width="0dp"
-                android:layout_height="600dp"
-                android:layout_marginEnd="8dp"
-                android:layout_weight="1"
-                android:background="@drawable/frame"
+            <!-- 수거신청과 이용방법을 위한 정사각형 요소, 이미지와 텍스트 포함 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
                 android:gravity="center"
-                android:layout_marginTop="30dp"
-                android:layout_marginBottom="10dp"
-                android:elevation="4dp">
+                android:padding="16dp"
+                >
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="top|start"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginTop="20dp"
-                    android:text="수거신청"
-                    android:textColor="#000000"
-                    android:textSize="14sp"
-                    android:textStyle="bold" />
 
-                <ImageView
-                    android:layout_width="92.5dp"
-                    android:layout_height="76dp"
-                    android:src="@drawable/truck"
-                    android:contentDescription="수거신청 아이콘"
-                    android:layout_gravity="bottom|end"
+
+                <FrameLayout
+                    android:id="@+id/apply"
+                    android:layout_width="0dp"
+                    android:layout_height="600dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/frame"
+                    android:gravity="center"
+                    android:layout_marginTop="30dp"
                     android:layout_marginBottom="10dp"
-                    android:layout_marginRight="10dp" />
-            </FrameLayout>
+                    android:elevation="4dp"
+                    android:clickable="true"
+                    android:focusable="true">
 
-            <FrameLayout
-                android:layout_width="0dp"
-                android:layout_height="600dp"
-                android:layout_marginStart="8dp"
-                android:layout_weight="1"
-                android:id="@+id/howtouseservice"
-                android:background="@drawable/frame"
-                android:gravity="center"
-                android:layout_marginTop="30dp"
-                android:layout_marginBottom="10dp"
-                android:elevation="4dp">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:orientation="vertical">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="이용방법"
-                    android:textColor="#000000"
-                    android:textSize="14sp"
-                    android:textStyle="bold"
-                    android:layout_gravity="top|start"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginTop="20dp" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="수거 신청"
+                            android:textColor="#000000"
+                            android:textSize="38sp"
+                            android:textStyle="bold"
+                            android:layout_marginTop="20dp" />
 
-                <ImageView
-                    android:layout_width="49dp"
-                    android:layout_height="50dp"
-                    android:src="@drawable/light"
-                    android:contentDescription="이용방법 아이콘"
-                    android:layout_gravity="bottom|end"
-                    android:layout_marginBottom="30dp"
-                    android:layout_marginRight="30dp" />
-            </FrameLayout>
-        </LinearLayout>
+                        <ImageView
+                            android:layout_width="320dp"
+                            android:layout_height="220dp"
+                            android:src="@drawable/truck"
+                            android:contentDescription="수거신청 아이콘"
+                            android:layout_marginTop="100dp" />
+                    </LinearLayout>
+                </FrameLayout>
+
+                <FrameLayout
+                    android:id="@+id/howtouseservice"
+                    android:layout_width="0dp"
+                    android:layout_height="600dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/frame"
+                    android:gravity="center"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginBottom="10dp"
+                    android:elevation="4dp"
+                    android:clickable="true"
+                    android:focusable="true">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="이용 방법"
+                            android:textColor="#000000"
+                            android:textSize="38sp"
+                            android:textStyle="bold"
+                            android:layout_marginTop="20dp" />
+
+                        <ImageView
+                            android:layout_width="320dp"
+                            android:layout_height="220dp"
+                            android:src="@drawable/light"
+                            android:contentDescription="수거신청 아이콘"
+                            android:layout_marginTop="100dp" />
+
+                    </LinearLayout>
+                </FrameLayout>
+
+
+
+
+
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
 
     </LinearLayout>
 

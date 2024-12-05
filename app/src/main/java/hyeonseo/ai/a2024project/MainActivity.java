@@ -35,16 +35,18 @@ public class MainActivity extends AppCompatActivity {
 
         // 사용자 유형에 따라 프래그먼트 초기화
         if ("client".equals(userType)) {
-            homeFragment = new HomeClientActivity();
+            homeFragment = HomeClientFragment.newInstance(userType, username);
             listFragment = new ClientList();
         } else if ("collecter".equals(userType)) {
-            homeFragment = new HomeCollecterActivity();
+            homeFragment = HomeCollecterFragment.newInstance(userType, username);
             listFragment = new CollectorList();
         }
         myPageFragment = new MyPage();
 
+
         // MyPage 프래그먼트 생성 후 데이터 전달
         myPageFragment = MyPage.newInstance(username, name, userType, email);
+
 
         // 기본 프래그먼트 설정
         setFragment(homeFragment);
