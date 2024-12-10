@@ -2,6 +2,7 @@ package hyeonseo.ai.a2024project;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
@@ -56,6 +57,8 @@ public class ApplyCollectionActivity extends AppCompatActivity {
 
                 // 약 이름과 개수 전달
                 for (int i = 0; i < drugList.size(); i++) {
+                    Log.d("ApplyCollectionActivity", "Drug Name: " + drugList.get(i).getName());
+                    Log.d("ApplyCollectionActivity", "Drug Count: " + drugList.get(i).getCount());
                     intent.putExtra("drug" + (i + 1) + "_name", drugList.get(i).getName()); // 약 이름
                     intent.putExtra("drug" + (i + 1) + "_count", drugList.get(i).getCount()); // 약 개수
                 }

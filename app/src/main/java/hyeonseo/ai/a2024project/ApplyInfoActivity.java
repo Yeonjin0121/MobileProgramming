@@ -48,9 +48,6 @@ public class ApplyInfoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_apply_info);
 
-
-
-
         //주소
         TextView addressDetailText = findViewById(R.id.address_detail_text);
         EditText addressDetailEdit = findViewById(R.id.address_detail_edit);
@@ -89,8 +86,8 @@ public class ApplyInfoActivity extends AppCompatActivity {
         // 약 정보 로깅 및 처리
         for (int i = 1; i <= 5; i++) {
             String drugName = intent.getStringExtra("drug" + i + "_name");
-            String drugCount = intent.getStringExtra("drug" + i + "_count");
-            if (drugName != null && drugCount != null) {
+            int drugCount = intent.getIntExtra("drug" + i + "_count",0);
+            if (drugName != null && drugCount >= 0) {
                 // 약 정보 로그로 확인
                 Log.d("DrugInfo", "약 이름: " + drugName + ", 약 개수: " + drugCount);
             }
@@ -159,11 +156,22 @@ public class ApplyInfoActivity extends AppCompatActivity {
 
 // 선택한 시간 전달
             ArrayList<String> selectedTimes = new ArrayList<>();
-            intentToss.putStringArrayListExtra("times", selectedTimes);
-
+            for (Button button : buttonStateMap.keySet()) {
+                if (buttonStateMap.get(button)) {
+                    selectedTimes.add(button.getText().toString());
+                }
+            }
 // 알약 정보 전달
             ArrayList<String> drugNames = new ArrayList<>();
             ArrayList<String> drugCounts = new ArrayList<>();
+            for (int i = 1; i <= 5; i++) {
+                String drugName = intent.getStringExtra("drug" + i + "_name");
+                int drugCount = intent.getIntExtra("drug" + i + "_count", 0);
+                if (drugName != null && drugCount > 0) {
+                    drugNames.add(drugName);
+                    drugCounts.add(String.valueOf(drugCount));
+                }
+            }
             intentToss.putStringArrayListExtra("drug_names", drugNames);
             intentToss.putStringArrayListExtra("drug_counts", drugCounts);
 

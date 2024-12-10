@@ -168,6 +168,7 @@
 
             <!-- 두 번째 줄: 날짜 -->
             <TextView
+                android:id="@+id/date"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_row="1"
@@ -182,6 +183,7 @@
 
             <!-- 두 번째 줄: 상태 -->
             <TextView
+                android:id="@+id/time"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_row="1"
@@ -234,6 +236,7 @@
 
                 <!-- 왼쪽 텍스트 -->
                 <TextView
+                    android:id="@+id/drug1"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:gravity="center"
@@ -251,6 +254,7 @@
 
                 <!-- 오른쪽 텍스트 -->
                 <TextView
+                    android:id="@+id/count_drug1"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:gravity="center"
@@ -270,10 +274,11 @@
 
                 <!-- 왼쪽 텍스트 -->
                 <TextView
+                    android:id="@+id/drug2"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:gravity="center"
-                    android:text="알약(전문의약품)"
+                    android:text="알약 (조제약)"
                     android:textSize="28sp"
                     android:paddingLeft="30dp" />
 
@@ -285,6 +290,45 @@
 
                 <!-- 오른쪽 텍스트 -->
                 <TextView
+                    android:id="@+id/count_drug2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="20개"
+                    android:textStyle="bold"
+                    android:textSize="20sp"
+                    android:paddingRight="30dp" />
+            </LinearLayout>
+
+
+
+            <LinearLayout
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:orientation="horizontal"
+                android:background="@drawable/item_infobg"
+                >
+
+                <!-- 왼쪽 텍스트 -->
+                <TextView
+                    android:id="@+id/drug3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="알약 (정제형)"
+                    android:textSize="28sp"
+                    android:paddingLeft="30dp" />
+
+                <!-- 빈 공간을 채워 오른쪽으로 밀어내기 -->
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1" />
+
+                <!-- 오른쪽 텍스트 -->
+                <TextView
+                    android:id="@+id/count_drug3"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:gravity="center"
@@ -304,6 +348,7 @@
 
                 <!-- 왼쪽 텍스트 -->
                 <TextView
+                    android:id="@+id/drug4"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:gravity="center"
@@ -319,6 +364,7 @@
 
                 <!-- 오른쪽 텍스트 -->
                 <TextView
+                    android:id="@+id/count_drug4"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:gravity="center"
@@ -338,10 +384,11 @@
 
                 <!-- 왼쪽 텍스트 -->
                 <TextView
+                    android:id="@+id/drug5"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:gravity="center"
-                    android:text="알약"
+                    android:text="연고 등 특수 용기"
                     android:textSize="28sp"
                     android:paddingLeft="30dp" />
 
@@ -353,40 +400,7 @@
 
                 <!-- 오른쪽 텍스트 -->
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:text="20개"
-                    android:textStyle="bold"
-                    android:textSize="20sp"
-                    android:paddingRight="30dp" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_marginTop="10dp"
-                android:layout_width="match_parent"
-                android:layout_height="70dp"
-                android:orientation="horizontal"
-                android:background="@drawable/item_infobg"
-                >
-
-                <!-- 왼쪽 텍스트 -->
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:text="물약"
-                    android:textSize="28sp"
-                    android:paddingLeft="30dp" />
-
-                <!-- 빈 공간을 채워 오른쪽으로 밀어내기 -->
-                <View
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1" />
-
-                <!-- 오른쪽 텍스트 -->
-                <TextView
+                    android:id="@+id/count_drug5"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:gravity="center"
@@ -406,6 +420,7 @@
 
                 <!-- 왼쪽 텍스트 -->
                 <TextView
+                    android:id="@+id/total"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:gravity="center"
@@ -422,6 +437,7 @@
 
                 <!-- 오른쪽 텍스트 -->
                 <TextView
+                    android:id="@+id/count_total"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:gravity="center"
@@ -476,6 +492,7 @@
 
             <!-- 첫 번째 줄: 주소 내용 -->
             <TextView
+                android:id="@+id/address"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_row="1"

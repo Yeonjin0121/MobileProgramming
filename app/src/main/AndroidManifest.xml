@@ -6,9 +6,9 @@
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
-        android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:icon="@mipmap/repharm"
+        android:label="Repharm"
+        android:roundIcon="@mipmap/repharm_round"
         android:supportsRtl="true"
         android:theme="@style/Theme._2024Project"
         tools:targetApi="31">
@@ -39,9 +39,7 @@
         <activity
             android:name=".DrugAdapter"
             android:exported="false" />
-        <activity
-            android:name=".ApplySuccessActivity"
-            android:exported="false" />
+
         <activity
             android:name=".ApplyInfoActivity"
             android:exported="false" />

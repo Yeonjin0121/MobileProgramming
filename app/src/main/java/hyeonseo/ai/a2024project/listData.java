@@ -1,8 +1,10 @@
 package hyeonseo.ai.a2024project;
 
 import android.net.Uri;
+import android.os.Parcel;
+import android.os.Parcelable;
 
-public class listData {
+public class listData implements Parcelable {
     private String date;
     private int iv_pill; // 이미지 리소스 ID
     private Uri imageUri; // 이미지 URI
@@ -44,4 +46,45 @@ public class listData {
     public String getTv_Dtype3() { return tv_Dtype3; }
 
     public int getPillLocPic() { return pillLocPic; }  // pillLocPic에 대한 getter 추가
+
+    // Parcelable 구현
+    protected listData(Parcel in) {
+        date = in.readString();
+        iv_pill = in.readInt();
+        imageUri = in.readParcelable(Uri.class.getClassLoader());
+        tv_Ptotal = in.readString();
+        tv_Dtype1 = in.readString();
+        tv_Dtype2 = in.readString();
+        tv_Dtype3 = in.readString();
+        pillLocPic = in.readInt();
+    }
+
+    public static final Creator<listData> CREATOR = new Creator<listData>() {
+        @Override
+        public listData createFromParcel(Parcel in) {
+            return new listData(in);
+        }
+
+        @Override
+        public listData[] newArray(int size) {
+            return new listData[size];
+        }
+    };
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(date);
+        dest.writeInt(iv_pill);
+        dest.writeParcelable(imageUri, flags);
+        dest.writeString(tv_Ptotal);
+        dest.writeString(tv_Dtype1);
+        dest.writeString(tv_Dtype2);
+        dest.writeString(tv_Dtype3);
+        dest.writeInt(pillLocPic);
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
 }

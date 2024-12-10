@@ -37,15 +37,39 @@ public class MainActivity extends AppCompatActivity {
         if ("client".equals(userType)) {
             homeFragment = HomeClientFragment.newInstance(userType, username);
             listFragment = new ClientList();
+            // client 유형일 경우, username이 일치할 때만 데이터를 넘기기
+            if (username != null && username.equals(getIntent().getStringExtra("username"))) {
+                Bundle args = new Bundle();
+                args.putString("username", username);
+                args.putString("user_type", userType);
+                args.putString("date", getIntent().getStringExtra("date"));
+                args.putStringArrayList("times", getIntent().getStringArrayListExtra("times"));
+                args.putStringArrayList("drug_names", getIntent().getStringArrayListExtra("drug_names"));
+                args.putStringArrayList("drug_counts", getIntent().getStringArrayListExtra("drug_counts"));
+                args.putStringArrayList("image_uris", getIntent().getStringArrayListExtra("image_uris"));
+                listFragment.setArguments(args);
+            }
         } else if ("collecter".equals(userType)) {
             homeFragment = HomeCollecterFragment.newInstance(userType, username);
             listFragment = new CollectorList();
+
+            Bundle args = new Bundle();
+            args.putString("username", username);
+            args.putString("user_type", userType);
+            args.putString("date", getIntent().getStringExtra("date"));
+            args.putStringArrayList("times", getIntent().getStringArrayListExtra("times"));
+            args.putStringArrayList("drug_names", getIntent().getStringArrayListExtra("drug_names"));
+            args.putStringArrayList("drug_counts", getIntent().getStringArrayListExtra("drug_counts"));
+            args.putStringArrayList("image_uris", getIntent().getStringArrayListExtra("image_uris"));
+            listFragment.setArguments(args);
         }
         myPageFragment = new MyPage();
 
 
         // MyPage 프래그먼트 생성 후 데이터 전달
         myPageFragment = MyPage.newInstance(username, name, userType, email);
+
+
 
 
         // 기본 프래그먼트 설정
