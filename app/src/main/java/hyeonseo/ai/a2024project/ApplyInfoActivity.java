@@ -38,9 +38,6 @@ public class ApplyInfoActivity extends AppCompatActivity {
     TextView selectedTimes;
 
 
-
-
-
     private HashMap<Button, Boolean> buttonStateMap = new HashMap<>(); // 버튼 상태 관리
 
     @Override

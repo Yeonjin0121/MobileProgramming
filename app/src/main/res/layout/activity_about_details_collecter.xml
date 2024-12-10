@@ -141,7 +141,18 @@
 
 
             </LinearLayout>
-
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:background="@drawable/btn_border"
+                android:layout_gravity="center"
+                android:text="수거 하시겠습니까?"
+                android:layout_marginRight="20dp"
+                android:layout_marginLeft="20dp"
+                app:backgroundTint="@null"
+                android:layout_marginBottom="10dp"
+                />
 
         </LinearLayout>
 
@@ -228,7 +239,7 @@
                 android:textStyle="bold"
                 android:padding="8dp"
                 android:layout_marginTop="25dp"
-                 />
+                />
 
             <LinearLayout
                 android:layout_marginTop="10dp"

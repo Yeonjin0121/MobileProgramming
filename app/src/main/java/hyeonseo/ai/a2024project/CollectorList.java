@@ -1,5 +1,6 @@
 package hyeonseo.ai.a2024project;
 
+import android.net.Uri;
 import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -10,14 +11,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import java.util.ArrayList;
 import java.util.List;
-import android.net.Uri;
 
 public class CollectorList extends Fragment {
-    private List<listData> dataList = new ArrayList<>();  // 기존 데이터를 저장할 리스트
+    private List<listData> dataList = new ArrayList<>();
     private listAdapter adapter;
 
     public CollectorList() {
-        // 기존에 있는 데이터 초기화
+        // 기존 데이터 초기화
         dataList.add(new listData("2024.01.21", R.drawable.pill1, "총 07개", "알약 (조제약)", "", ""));
         dataList.add(new listData("2024.03.10", R.drawable.pill2, "총 24개", "알약 (조제약)", "", ""));
         dataList.add(new listData("2024.04.05", R.drawable.pill3, "총 34개", "알약 (조제약)", "알약 (정제형)", ""));
@@ -35,93 +35,69 @@ public class CollectorList extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.fragment_collector_list, container, false);
 
         // RecyclerView 설정
         RecyclerView recyclerView = rootView.findViewById(R.id.recyclerViewCollector);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
+        // userType 가져오기
+        String userType = getArguments() != null ? getArguments().getString("user_type") : "collecter";
+        Log.d("CollectorList", "Received userType: " + userType);
         // Adapter 초기화
-        adapter = new listAdapter(dataList);
+        adapter = new listAdapter(dataList, userType);
         recyclerView.setAdapter(adapter);
 
-        // MainActivity로부터 전달된 Bundle 데이터 수신
-        Bundle args = getArguments();
-        if (args != null) {
-            String username = args.getString("username");
-            String userType = args.getString("user_type");
-            String date = args.getString("date");
-            ArrayList<String> times = args.getStringArrayList("times");
-            ArrayList<String> drugNames = args.getStringArrayList("drug_names");
-            ArrayList<String> drugCounts = args.getStringArrayList("drug_counts");
-            ArrayList<String> imageUris = args.getStringArrayList("image_uris");
-
-            // Log the received data
-            Log.d("CollectorList", "Username: " + username);
-            Log.d("CollectorList", "User Type: " + userType);
-            Log.d("CollectorList", "Date: " + date);
-
-            // 수거 신청 데이터가 있으면 dataList에 추가
-            if (date != null && !date.isEmpty() && drugNames != null && !drugNames.isEmpty()) {
-                // 약 정보 및 총 개수 계산
-                int totalDrugCount = 0;
-                String drugType1 = "";
-                String drugType2 = "";
-                String drugType3 = "";
-
-                int drugIndex = 0;
-                for (int i = 0; i < drugNames.size(); i++) {
-                    String name = drugNames.get(i);
-                    int count = Integer.parseInt(drugCounts.get(i));
-                    totalDrugCount += count;
-
-                    // 약 종류가 0이 아닌 경우에만 추가
-                    if (count > 0) {
-                        if (drugIndex == 0) {
-                            drugType1 = name + " (" + count + "개)";
-                        } else if (drugIndex == 1) {
-                            drugType2 = name + " (" + count + "개)";
-                        } else if (drugIndex == 2) {
-                            drugType3 = name + " (" + count + "개)";
-                        }
-                        drugIndex++;
-                    }
-                }
-
-                // 선택한 시간 문자열
-                StringBuilder timeSummary = new StringBuilder();
-                if (times != null) {
-                    for (String time : times) {
-                        timeSummary.append(time).append(". ");
-                        Log.d("CollectorList", "Selected time: " + time);
-                    }
-                }
-
-                // 이미지 URI 리스트가 비어 있지 않으면 첫 번째 이미지 사용
-                Uri firstImageUri = null;
-                if (imageUris != null && !imageUris.isEmpty()) {
-                    firstImageUri = Uri.parse(imageUris.get(0));  // 첫 번째 이미지 URI로 변환
-                    Log.d("CollectorList", "Image URI: " + firstImageUri);
-                }
-
-                // 기존 dataList에 새로운 데이터 추가
-                dataList.add(new listData(
-                        date,
-                        firstImageUri, // 첫 번째 이미지 URI 사용
-                        "총 " + totalDrugCount + "개",
-                        drugType1, // 약 종류 1
-                        drugType2, // 약 종류 2
-                        drugType3  // 약 종류 3
-                ));
-
-                // RecyclerView 갱신
-                adapter.notifyItemInserted(dataList.size() - 1);  // 추가된 아이템만 갱신
-            } else {
-                Log.d("CollectorList", "No new data to add.");
-            }
-        }
+        // MainActivity로부터 전달된 데이터 처리
+        handleReceivedData();
 
         return rootView;
+    }
+
+    private void handleReceivedData() {
+        Bundle args = getArguments();
+        if (args == null) return;
+
+        // 데이터 수신
+        String date = args.getString("date");
+        ArrayList<String> times = args.getStringArrayList("times");
+        ArrayList<String> drugNames = args.getStringArrayList("drug_names");
+        ArrayList<String> drugCounts = args.getStringArrayList("drug_counts");
+        ArrayList<String> imageUris = args.getStringArrayList("image_uris");
+
+        if (date != null && drugNames != null && drugCounts != null) {
+            // 약 데이터 처리
+            int totalDrugCount = 0;
+            String[] drugTypes = new String[3];
+
+            for (int i = 0; i < drugNames.size(); i++) {
+                int count = Integer.parseInt(drugCounts.get(i));
+                if (count > 0) {
+                    totalDrugCount += count;
+                    if (i < drugTypes.length) {
+                        drugTypes[i] = drugNames.get(i) + " (" + count + "개)";
+                    }
+                }
+            }
+
+            // 첫 번째 이미지 URI 처리
+            Uri firstImageUri = null;
+            if (imageUris != null && !imageUris.isEmpty()) {
+                firstImageUri = Uri.parse(imageUris.get(0));
+            }
+
+            // 데이터 추가
+            dataList.add(new listData(
+                    date,
+                    firstImageUri, // 기본 이미지 처리
+                    "총 " + totalDrugCount + "개",
+                    drugTypes[0] != null ? drugTypes[0] : "",
+                    drugTypes[1] != null ? drugTypes[1] : "",
+                    drugTypes[2] != null ? drugTypes[2] : ""
+            ));
+            adapter.notifyItemInserted(dataList.size() - 1);
+        } else {
+            Log.d("CollectorList", "필요한 데이터가 없습니다.");
+        }
     }
 }

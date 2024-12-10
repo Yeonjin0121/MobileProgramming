@@ -17,7 +17,6 @@ public class ClientList extends Fragment {
     private listAdapter adapter;
 
     public ClientList() {
-        // Required empty public constructor
         // 기존에 있는 데이터 초기화
         dataList.add(new listData("2024.01.21", R.drawable.pill1, "총 07개", "알약 (조제약)", "", ""));
         dataList.add(new listData("2024.04.05", R.drawable.pill3, "총 34개", "알약 (조제약)", "알약 (정제형)", ""));
@@ -25,14 +24,6 @@ public class ClientList extends Fragment {
         dataList.add(new listData("2024.06.28", R.drawable.pill1, "총 13개", "알약 (조제약)", "", ""));
         dataList.add(new listData("2024.12.01", R.drawable.pill4, "총 14개", "알약 (조제약)", "", ""));
         dataList.add(new listData("2024.12.29", R.drawable.pill5, "총 18개", "TypeA", "TypeB", "TypeC"));
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            // 파라미터 초기화
-        }
     }
 
     @Override
@@ -45,10 +36,21 @@ public class ClientList extends Fragment {
         RecyclerView recyclerView = rootView.findViewById(R.id.recyclerViewClient);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
+        // userType 가져오기
+        String userType = getArguments() != null ? getArguments().getString("user_type") : "client";
+
         // Adapter 초기화
-        adapter = new listAdapter(dataList);
+        adapter = new listAdapter(dataList, userType);
         recyclerView.setAdapter(adapter);
 
+
+        // MainActivity로부터 전달된 데이터 처리
+        handleReceivedData();
+
+        return rootView;
+    }
+
+    private void handleReceivedData() {
         // MainActivity로부터 전달된 Intent 데이터 수신
         Bundle args = getArguments();
         if (args != null) {
@@ -105,6 +107,8 @@ public class ClientList extends Fragment {
                 Uri firstImageUri = null;
                 if (imageUris != null && !imageUris.isEmpty()) {
                     firstImageUri = Uri.parse(imageUris.get(0));  // 첫 번째 이미지 URI로 변환
+                    Log.d("ClientList", "Image URI: " + firstImageUri);
+
                 }
 
                 // 기존 dataList에 새로운 데이터 추가
@@ -118,12 +122,12 @@ public class ClientList extends Fragment {
                 ));
 
                 // RecyclerView 갱신
-                adapter.notifyDataSetChanged();
+                adapter.notifyItemInserted(dataList.size() - 1);  // 추가된 아이템만 갱신
             } else {
                 Log.d("ClientList", "No new data to add.");
             }
         }
 
-        return rootView;
+
     }
 }
